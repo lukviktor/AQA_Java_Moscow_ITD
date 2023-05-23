@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static data.DataAutorization.*;
 
 public class MainPage {
 
@@ -17,15 +16,8 @@ public class MainPage {
     // Поле пароль пользователя
     private final SelenideElement inputPassword = $x("//input[@id='password-modal']");
 
-
-    // гипертекстовая ссылка залогиненого пользователя
-    private final SelenideElement hrefBtnLogin = $x("//li[@id='howdy']/a");
-
     // Кнопка регистрации
     private final SelenideElement btnRegister = $x("//a[@data-target='#register-modal']");
-
-    // Кнопка выход из системы
-    private final SelenideElement btnLogout = $x("//a[@onclick='logout()']");
 
     // Дропдаун категории
     private final SelenideElement dropdownCategory = $x("//a[@class='dropdown-toggle']");
@@ -60,17 +52,9 @@ public class MainPage {
         return new MainPage();
     }
 
-    @Step("Проверка что пользователь авторизовался")
-    public boolean checkAuthorization() {
-        return btnLogout.isDisplayed();
-        // hrefBtnLogin.shouldHave(textCaseSensitive("Logged in as"));
-    }
-
     @Step("Перейти в категории товаров")
     public CategoryPage goCategory() {
         dropdownCategory.click();
         return new CategoryPage();
     }
-
-
 }

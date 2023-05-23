@@ -4,9 +4,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.stream.IntStream;
 
 import static com.codeborne.selenide.Selenide.$$x;
@@ -29,9 +26,6 @@ public class CategoryPage {
     // Коллекция элементов товаров
     private final ElementsCollection productsCart = $$x("//p[@class='buttons']/a[@href='#']");
 
-    //создаем список, в который поместим ссылки на продукты магазина
-    List<String> links = new ArrayList<>();
-
     @Step("Добавление в корзину случайных продуктов")
     public void setLinksProduct() {
         IntStream.iterate(productsCart.size() - 1, i -> i >= 0, i -> i - 1).forEach(i -> productsCart.get(i).click());
@@ -51,6 +45,4 @@ public class CategoryPage {
         productsCartColourful.click();
         itemsInCart.click();
     }
-
-
 }

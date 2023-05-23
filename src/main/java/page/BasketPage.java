@@ -24,11 +24,11 @@ public class BasketPage {
     private final SelenideElement orderSubTotal = $x("//th[@id='orderSubtotal']");
 
     @Step("Очистить элементы корзины")
-    public void dellElementBasket() throws InterruptedException {
+    public void dellElementBasket() {
 
         for (int i = 0; i < dellElementBasket.size(); i++) {
             dellElementBasketOne.click();
-            Thread.sleep(1000);
+
             if (dellElementBasket.size() != 0) {
                 dellElementBasketOne.click();
             }
@@ -44,7 +44,7 @@ public class BasketPage {
     public double totalColumnPrise() {
 
         try {
-            Thread.sleep(2000); //задержка на 2 секунды
+            Thread.sleep(1000); //задержка на 1 секунду
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

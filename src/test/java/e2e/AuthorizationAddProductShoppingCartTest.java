@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import page.BasketPage;
 import page.MainPage;
 
-import static data.DataAutorization.*;
+import static data.DataAuthorization.*;
 
 /**
  * тест по авторизации и добавления товара в корзину.
@@ -16,7 +16,7 @@ import static data.DataAutorization.*;
 public class AuthorizationAddProductShoppingCartTest extends BaseSelenideTest {
 
     @AfterEach
-    public void clearBasket() throws InterruptedException {
+    public void clearBasket() {
         BasketPage basketPage = new BasketPage();
         basketPage.dellElementBasket();
     }
